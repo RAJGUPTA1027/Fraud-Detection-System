@@ -17,7 +17,7 @@ st.info(f"Amount: ₹{amount}\n\nTime: {time}:00\n\nTransactions Today: {transac
 if st.button("🚀 Predict"):
     data = {"amount": amount, "time": time, "transactions": transactions}
     try:
-        res = requests.post(f"{BACKEND_URL}/predict", json=data, timeout=15)
+        res = requests.post(f"{BACKEND_URL}/predict", json=data, timeout=90)
         res.raise_for_status()
         result = res.json()
         if result["fraud"] == 1:
